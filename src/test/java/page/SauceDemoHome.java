@@ -18,33 +18,24 @@ public class SauceDemoHome extends BaseSauce {
     WebElement errorBanner;
 
     public SauceDemoHome () {
+        super();
         PageFactory.initElements(driver,this);
     }
-public SauceDemoHome fillUsername (String x) {
-        wdWait.until(ExpectedConditions.elementToBeClickable(username));
-        username.clear();
-        username.sendKeys(x);
-        return this;
-
+public void fillUsername (String x) {
+        fillTextField(x,username);
 }
-public SauceDemoHome fillPassword (String x) {
-        wdWait.until(ExpectedConditions.elementToBeClickable(password));
-        password.clear();
-        password.sendKeys(x);
-        return this;
-
+public void fillPassword (String x) {
+       fillTextField(x,password);
 }
 public void clickLogin () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(loginButton));
-        loginButton.click();
+        clickOnButton(loginButton);
 }
 public boolean errorDisplaying () {
-        wdWait.until(ExpectedConditions.visibilityOf(errorBanner));
-        return errorBanner.isDisplayed();
+       return isDisplayed(errorBanner);
 }
 public String errorText () {
-        wdWait.until(ExpectedConditions.visibilityOf(errorBanner));
-        return errorBanner.getText();
+
+        return textShown(errorBanner);
 }
 
 }

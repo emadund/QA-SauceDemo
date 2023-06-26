@@ -19,44 +19,32 @@ public class CheckOutPage extends BaseSauce {
     WebElement wrong;
 
     public CheckOutPage () {
+        super();
         PageFactory.initElements(driver, this);
     }
 
-    public CheckOutPage inputAllFields () {
-        this.inputFirstName("Zika")
-                .inputLastName("Zikic")
-                .inputZipCode("37000");
-        return this;
+    public void inputAllFields () {
+        inputFirstName("Zika");
+        inputLastName("Zikic");
+        inputZipCode("37000");
     } // one method for all inputs
-    public CheckOutPage inputFirstName (String x) {
-        wdWait.until(ExpectedConditions.elementToBeClickable(firstName));
-        firstName.clear();
-        firstName.sendKeys(x);
-        return this;
+    public void inputFirstName (String x) {
+        fillTextField(x, firstName);
     }
-    public CheckOutPage inputLastName (String x) {
-        wdWait.until(ExpectedConditions.elementToBeClickable(lastName));
-        lastName.clear();
-        lastName.sendKeys(x);
-        return this;
+    public void inputLastName (String x) {
+        fillTextField(x, lastName);
     }
-    public CheckOutPage inputZipCode (String x) {
-        wdWait.until(ExpectedConditions.elementToBeClickable(zipCode));
-        zipCode.clear();
-        zipCode.sendKeys(x);
-        return this;
+    public void inputZipCode (String x) {
+        fillTextField(x, zipCode);
     }
     public void clickContinue () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(finish));
-        finish.click();
+        clickOnButton(finish);
     }
     public boolean wrongDisplayed () {
-        wdWait.until(ExpectedConditions.visibilityOf(wrong));
-        return wrong.isDisplayed();
+        return isDisplayed(wrong);
     }
     public String wrongText () {
-        wdWait.until(ExpectedConditions.visibilityOf(wrong));
-        return wrong.getText();
+        return textShown(wrong);
     }
 
 }

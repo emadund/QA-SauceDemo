@@ -14,23 +14,21 @@ public class CompletePage extends BaseSauce {
     WebElement orderMessage;
 
     public CompletePage () {
+        super();
         PageFactory.initElements(driver, this);
     }
     public boolean completedDisplayed () {
-        wdWait.until(ExpectedConditions.visibilityOf(orderCompleted));
-        return orderCompleted.isDisplayed();
+        return isDisplayed(orderCompleted);
     }
     public String completedText () {
-        wdWait.until(ExpectedConditions.visibilityOf(orderCompleted));
-        return orderCompleted.getText();
+
+        return textShown(orderCompleted);
     }
     public boolean messageDisplayed () {
-        wdWait.until(ExpectedConditions.visibilityOf(orderMessage));
-        return orderMessage.isDisplayed();
+        return isDisplayed(orderMessage);
     }
     public String messageText () {
-        wdWait.until(ExpectedConditions.visibilityOf(orderMessage));
-        return orderMessage.getText();
+        return textShown(orderMessage);
     }
 }
 

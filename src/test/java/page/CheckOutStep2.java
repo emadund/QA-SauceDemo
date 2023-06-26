@@ -13,15 +13,14 @@ public class CheckOutStep2 extends BaseSauce {
     WebElement finito;
 
 public CheckOutStep2 () {
+    super();
     PageFactory.initElements(driver, this);
 }
 public boolean checkTotal () {
-    wdWait.until(ExpectedConditions.elementToBeClickable(totalItem));
-    return totalItem.isDisplayed();
+    return isDisplayed(totalItem);
 }
 public void goToOrder () {
-    wdWait.until(ExpectedConditions.elementToBeClickable(finito));
-    finito.click();
+    clickOnButton(finito);
 }
 
 }

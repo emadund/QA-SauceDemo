@@ -44,23 +44,19 @@ public class SauceInventory extends BaseSauce {
 
 
 public SauceInventory () {
+
+    super();
     PageFactory.initElements(driver, this);
 }
  public void clickItem (int i) {
 
     switch (i) {
-        case 1: wdWait.until(ExpectedConditions.elementToBeClickable(itemCart1));
-        itemCart1.click(); break;
-        case 2: wdWait.until(ExpectedConditions.elementToBeClickable(itemCart2));
-            itemCart2.click(); break;
-        case 3: wdWait.until(ExpectedConditions.elementToBeClickable(itemCart3));
-            itemCart3.click(); break;
-        case 4: wdWait.until(ExpectedConditions.elementToBeClickable(itemCart4));
-            itemCart4.click(); break;
-        case 5: wdWait.until(ExpectedConditions.elementToBeClickable(itemCart5));
-            itemCart5.click(); break;
-        case 6: wdWait.until(ExpectedConditions.elementToBeClickable(itemCart6));
-            itemCart6.click(); break;
+        case 1: clickOnButton(itemCart1); break;
+        case 2: clickOnButton(itemCart2); break;
+        case 3: clickOnButton(itemCart3); break;
+        case 4: clickOnButton(itemCart4); break;
+        case 5: clickOnButton(itemCart5); break;
+        case 6: clickOnButton(itemCart6); break;
     }
     // Method for choosing one among 6 items
 }
@@ -68,41 +64,31 @@ public SauceInventory () {
     public void clickItemDetails (int i) {
 
         switch (i) {
-            case 1: wdWait.until(ExpectedConditions.elementToBeClickable(item1));
-                item1.click(); break;
-            case 2: wdWait.until(ExpectedConditions.elementToBeClickable(item2));
-                item2.click(); break;
-            case 3: wdWait.until(ExpectedConditions.elementToBeClickable(item3));
-                item3.click(); break;
-            case 4: wdWait.until(ExpectedConditions.elementToBeClickable(item4));
-                item4.click(); break;
-            case 5: wdWait.until(ExpectedConditions.elementToBeClickable(item5));
-                item5.click(); break;
-            case 6: wdWait.until(ExpectedConditions.elementToBeClickable(item6));
-                item6.click(); break;
+            case 1: clickOnButton(item1); break;
+            case 2: clickOnButton(item1); break;
+            case 3: clickOnButton(item1); break;
+            case 4: clickOnButton(item1); break;
+            case 5: clickOnButton(item1); break;
+            case 6: clickOnButton(item1); break;
         }
         //Method for choosing one among 6 items and clicking on its image
 }
 public void addDetailedItem () {
-       wdWait.until(ExpectedConditions.elementToBeClickable(addToCartItem));
-       addToCartItem.click();
+       clickOnButton(addToCartItem);
 }
 public void clickBasket () {
-    wdWait.until(ExpectedConditions.elementToBeClickable(basket));
-    basket.click();
+    clickOnButton(basket);
 }
 public boolean basketDisplayed () {
-    wdWait.until(ExpectedConditions.visibilityOf(basket));
-    return basket.isDisplayed();
+    return isDisplayed(basket);
 }
 public String basketQuantity () {
     wdWait.until(ExpectedConditions.elementToBeClickable(basket));
-    return basket.getText();
+    return textShown(basket);
 }
 
-    public void scrollDown() {
-        js.executeScript("window.scrollBy(0,200)");
-        wdWait.until(ExpectedConditions.elementToBeClickable(itemCart5));
+    public void scrollDownInventory() {
+        scrollDown(itemCart5);
     }
 
 

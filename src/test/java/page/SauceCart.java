@@ -20,29 +20,27 @@ public class SauceCart extends BaseSauce {
 
 
     public SauceCart () {
+        super();
         PageFactory.initElements(driver, this);
     }
 
     public String cartQuantity () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(shoppingCart));
-        return shoppingCart.getText();
+
+        return textShown(shoppingCart);
     }
     public boolean firstItemDisplayed () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(removeItem1));
-        return removeItem1.isDisplayed();
+
+        return isDisplayed(removeItem1);
     }
     public boolean secondItemDisplayed () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(removeItem2));
-        return removeItem2.isDisplayed();
+
+        return isDisplayed(removeItem2);
     }
     public void removeFirstItem () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(removeItem1));
-        removeItem1.click();
+        clickOnButton(removeItem1);
     }
     public void clickCheckOut () {
-        wdWait.until(ExpectedConditions.elementToBeClickable(checkOut));
-        checkOut.click();
-
+        clickOnButton(checkOut);
     }
 
 }
