@@ -33,24 +33,24 @@ public void initialSetup () {
     driver.get("https://www.saucedemo.com/");
 
 }
-    public void fillTextField (String text, WebElement w) {
+    protected void fillTextField (String text, WebElement w) {
         wdWait.until(ExpectedConditions.elementToBeClickable(w));
         w.clear();
         w.sendKeys(text);
     }
-    public void clickOnButton (WebElement w) {
+    protected void clickOnButton (WebElement w) {
         wdWait.until(ExpectedConditions.elementToBeClickable(w));
         w.click();
     }
-    public boolean isDisplayed (WebElement w) {
+    protected boolean isDisplayed (WebElement w) {
         wdWait.until(ExpectedConditions.visibilityOf(w));
         return w.isDisplayed();
     }
-    public String textShown (WebElement w) {
+    protected String textShown (WebElement w) {
         wdWait.until(ExpectedConditions.visibilityOf(w));
         return w.getText();
     }
-    public void scrollDown(WebElement w) {
+    protected void scrollDown(WebElement w) {
         js.executeScript("window.scrollBy(0,200)");
         wdWait.until(ExpectedConditions.elementToBeClickable(w));
     }
